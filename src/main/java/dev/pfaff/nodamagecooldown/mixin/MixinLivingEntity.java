@@ -24,8 +24,6 @@ public abstract class MixinLivingEntity extends Entity {
 
 	// FIXME: this is an awful hack around mixins limitations
 	@Unique
-	private boolean bl2Tmp;
-	@Unique
 	private boolean isInCooldownTmp;
 
 	@Inject(method = "damage", at = @At(value = "FIELD", opcode = Opcodes.GETFIELD, target = "Lnet/minecraft/entity/LivingEntity;timeUntilRegen:I"), require = 1, allow = 1)
@@ -40,30 +38,6 @@ public abstract class MixinLivingEntity extends Entity {
 	private boolean damage$knockbackCooldown(boolean isIn) {
 		return isIn || this.isInCooldownTmp;
 	}
-
-	//@ModifyVariable(method = "damage", at = @At(value = "LOAD", opcode = Opcodes.ILOAD, shift = At.Shift.BEFORE), slice = @Slice(
-	//	from = @At(value = "INVOKE",
-	//			   target = "Lnet/minecraft/entity/LivingEntity;setAttackingPlayer(Lnet/minecraft/entity/damage/DamageSource;)Lnet/minecraft/entity/player/PlayerEntity;"),
-	//	to = @At(value = "INVOKE",
-	//			 target = "Lnet/minecraft/server/world/ServerWorld;sendEntityStatus(Lnet/minecraft/entity/Entity;B)V")
-	//), index = 7, require = 1, allow = 1)
-	//private boolean damage$knockbackCooldownPre(boolean value, ServerWorld world, DamageSource source, float amount) {
-	//	this.bl2Tmp = value;
-	//	if (this.isInCooldownTmp) {
-	//		return false;
-	//	}
-	//	return value;
-	//}
-	//
-	//@ModifyVariable(method = "damage", at = @At(value = "LOAD", opcode = Opcodes.ILOAD, shift = At.Shift.AFTER), slice = @Slice(
-	//	from = @At(value = "INVOKE",
-	//			   target = "Lnet/minecraft/entity/LivingEntity;setAttackingPlayer(Lnet/minecraft/entity/damage/DamageSource;)Lnet/minecraft/entity/player/PlayerEntity;"),
-	//	to = @At(value = "INVOKE",
-	//			 target = "Lnet/minecraft/server/world/ServerWorld;sendEntityStatus(Lnet/minecraft/entity/Entity;B)V")
-	//), index = 7, require = 1, allow = 1)
-	//private boolean damage$knockbackCooldownPost(boolean value, ServerWorld world, DamageSource source, float amount) {
-	//	return this.bl2Tmp;
-	//}
 
 	@Inject(method = "getKnockbackAgainst", at = @At("HEAD"), cancellable = true, require = 1, allow = 1)
 	private void getKnockbackAgainst$knockbackCooldown(Entity target, DamageSource damageSource, CallbackInfoReturnable<Float> cir) {
