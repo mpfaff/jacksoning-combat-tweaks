@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "no_damage_cooldown",
+  "version": "${version}",
+  "name": "No Damage Cooldown",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/no_damage_cooldown/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.pfaff.nodamagecooldown.NoDamageCooldown"
+    ]
+  },
+  "mixins": [
+    "no_damage_cooldown.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}"
+  }
+}
