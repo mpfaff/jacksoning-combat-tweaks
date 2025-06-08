@@ -7,5 +7,6 @@ public class NoDamageCooldown implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		Components.initialize();
 	}
 }
