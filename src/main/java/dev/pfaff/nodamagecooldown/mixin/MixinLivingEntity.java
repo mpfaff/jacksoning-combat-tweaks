@@ -30,7 +30,7 @@ public abstract class MixinLivingEntity extends Entity {
 
 	@Inject(method = "damage", at = @At(value = "FIELD", opcode = Opcodes.GETFIELD, target = "Lnet/minecraft/entity/LivingEntity;timeUntilRegen:I"), require = 1, allow = 1)
 	private void damage$storeIsInCooldownTmp(ServerWorld world, DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-		this.isInCooldownTmp = this.timeUntilRegen > 10.0F && ((Object) this) instanceof PlayerEntity && !source.getWeaponStack().contains(Components.BYPASS_KNOCKBACK_COOLDOWN);
+		this.isInCooldownTmp = this.timeUntilRegen > 10.0F && ((Object) this) instanceof PlayerEntity && (source.getWeaponStack() == null || !source.getWeaponStack().contains(Components.BYPASS_KNOCKBACK_COOLDOWN));
 	}
 
 	@ModifyExpressionValue(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/damage/DamageSource;isIn(Lnet/minecraft/registry/tag/TagKey;)Z"), slice = @Slice(
