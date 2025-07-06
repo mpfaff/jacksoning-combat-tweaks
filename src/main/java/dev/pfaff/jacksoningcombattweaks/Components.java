@@ -1,4 +1,4 @@
-package dev.pfaff.nodamagecooldown;
+package dev.pfaff.jacksoningcombattweaks;
 
 import eu.pb4.polymer.core.api.other.PolymerComponent;
 import net.minecraft.component.ComponentType;
@@ -8,7 +8,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Unit;
 
-import static dev.pfaff.nodamagecooldown.NoDamageCooldown.MOD_ID;
+import static dev.pfaff.jacksoningcombattweaks.JacksoningCombatTweaks.MOD_ID;
 
 public final class Components {
 	public static final ComponentType<Unit> BYPASS_KNOCKBACK_COOLDOWN = Registry.register(

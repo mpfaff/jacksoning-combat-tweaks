@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "id": "no_damage_cooldown",
+  "id": "jacksoning_combat_tweaks",
   "version": "${version}",
-  "name": "No Damage Cooldown",
+  "name": "Jacksoning Combat Tweaks",
   "description": "",
   "authors": [],
   "contact": {},
   "license": "All-Rights-Reserved",
-  "icon": "assets/no_damage_cooldown/icon.png",
+  "icon": "assets/jacksoning_combat_tweaks/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "dev.pfaff.nodamagecooldown.NoDamageCooldown"
+      "dev.pfaff.jacksoningcombattweaks.JacksoningCombatTweaks"
     ]
   },
   "mixins": [
-    "no_damage_cooldown.mixins.json"
+    "jacksoning_combat_tweaks.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",

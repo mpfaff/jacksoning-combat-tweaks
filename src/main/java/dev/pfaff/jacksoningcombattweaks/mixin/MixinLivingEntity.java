@@ -1,7 +1,7 @@
-package dev.pfaff.nodamagecooldown.mixin;
+package dev.pfaff.jacksoningcombattweaks.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import dev.pfaff.nodamagecooldown.Components;
+import dev.pfaff.jacksoningcombattweaks.Components;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
